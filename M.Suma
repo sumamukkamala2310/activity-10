@@ -1,0 +1,67 @@
+#include<stdio.h>
+typedef struct {
+	int nume;
+	int deno;
+}
+fraction;
+int input_num() {
+	int num;
+	printf("Enter the number of fractions to be summed:\n");
+	scanf("%d", &num);
+	return num;
+}
+fraction input_value(int num, fraction arr[ ]) {
+	int a;
+	for (a = 0; a<num; a++) {
+	      printf("Enter the %d th numerator and denominator value: \n", a+1);
+	      scanf(%d%d", &arr[a].nume, &arr[a].deno);
+	}
+}
+int one_gcd(int a, int b) {
+     if(b==0)
+	return a;
+     return one_gcd(b, a%b);
+}
+fraction calculate_sumof2(fraction first, fraction second) {
+    fraction third;
+    third.deno=(first.deno*second.deno);
+    third.nume=(first nume)*(second.deno)+(second.nume)*(first.deno);
+    int common_factor=one_gcd(third.nume,thirddeno);
+    third.deno=third.deno/common_factor;
+    third.nume=third.nume/common_factor;
+    return third;
+}
+fraction calculate_sumof_n(int num,fraction arr[ ]) {
+    fraction total;
+	total.nume=0;
+     struct fraction total;
+    int a;
+    for(int a=0;a<num;a++) {
+    total.deno-total.nume*aee[a].deno;
+    }
+    for(int a=0;a<num;a++) {
+    total.nume=total.nume+(arr[a].nume)*(total.deno/arr[a].deno);
+    }
+    int cf=gcd(total.nume,total.deno);
+    total.deno=total.deno/cf;
+    total.nume=total.nume/cf;
+}
+
+void result(int num,int arr[ ],fraction total) {
+     int a;
+     printf("The fractions are");
+     for(a=0;a<num;a++) {
+	printf("(%f%f),",arr[a].nume,arr[a].deno);
+     }
+     printf(" whose value is summed to get (%f/%f)\n",total.nume,total.deno);
+}
+int main() {
+	fraction sum;
+	int num;
+	num=input_num();
+	float arr[num];
+	input_value(num,arr);
+	sum=calculate(num,arr);
+	result(num,arr,sum);
+}
+
